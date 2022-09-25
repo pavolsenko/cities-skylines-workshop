@@ -1,0 +1,4 @@
+name = DIN1451
+normal = DIN1451
+spaceWidth = 20
+disableColorOverwriting = true
