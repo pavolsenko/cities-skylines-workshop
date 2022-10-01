@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PloppableRICODefinition>
+  <Buildings>
+    <Building name="Barre Tassigny A" service="residential" sub-service="high" level="2" workplaces="0" homes="85" construction-cost="8000" ui-category="reshigh"></Building>
+    <Building name="Barre Tassigny B" service="residential" sub-service="high" level="2" workplaces="0" homes="85" construction-cost="8000" ui-category="reshigh"></Building>
+    <Building name="Barre Tassigny C" service="residential" sub-service="high" level="2" workplaces="0" homes="85" construction-cost="8000" ui-category="reshigh"></Building>
+  </Buildings>
+</PloppableRICODefinition>

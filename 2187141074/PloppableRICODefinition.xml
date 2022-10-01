@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PloppableRICODefinition>
+  <Buildings>
+    <Building name="Tour Neyrat 1" service="residential" sub-service="high" level="2" workplaces="0" homes="64" construction-cost="6000" ui-category="reshigh"></Building>
+    <Building name="Tour Neyrat 2" service="residential" sub-service="high" level="2" workplaces="0" homes="44" construction-cost="4000" ui-category="reshigh"></Building>
+  </Buildings>
+</PloppableRICODefinition>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PloppableRICODefinition>
+  <Buildings>
+    <Building name="RDV 3000 5B" service="residential" sub-service="high" level="2" workplaces="0" homes="20" construction-cost="2000" ui-category="reshigh"></Building>
+    <Building name="RDV 3000 5B1" service="residential" sub-service="high" level="2" workplaces="0" homes="20" construction-cost="2000" ui-category="reshigh"></Building>
+    <Building name="RDV 3000 5B2" service="residential" sub-service="high" level="2" workplaces="0" homes="20" construction-cost="2000" ui-category="reshigh"></Building>
+    <Building name="RDV 3000 5B3" service="residential" sub-service="high" level="2" workplaces="0" homes="10" construction-cost="1000" ui-category="reshigh"></Building>
+    <Building name="RDV 3000 5B4" service="residential" sub-service="high" level="2" workplaces="0" homes="10" construction-cost="1000" ui-category="reshigh"></Building>
+    <Building name="RDV 3000 5B5" service="residential" sub-service="high" level="2" workplaces="0" homes="10" construction-cost="1000" ui-category="reshigh"></Building>
+    <Building name="RDV 3000 5B6" service="residential" sub-service="high" level="2" workplaces="0" homes="10" construction-cost="1000" ui-category="reshigh"></Building>
+    <Building name="RDV 3000 5B7" service="residential" sub-service="high" level="2" workplaces="0" homes="10" construction-cost="1000" ui-category="reshigh"></Building>
+  </Buildings>
+</PloppableRICODefinition>
