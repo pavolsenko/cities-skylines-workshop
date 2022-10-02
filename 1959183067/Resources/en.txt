@@ -1,0 +1,12 @@
+﻿road_color_setting	CSUR Road Color Settings
+change_all_sliders	Change all sliders together
+change_other_color	Also change other road color
+road_prop_setting	CSUR Road Prop Settings (Will take effect after next load)
+road_arrows	Road Arrows
+traffic_lights	Traffic Lights
+median_signs	Median Signs
+traffic_cameras	Traffic Cameras
+texture_style	Road Texture Style
+district_policy_setting	CSUR District Policy Toggling Settings (Will take effect after next load)
+tip1	Turn on retaining walls for non-sidewalk roads only when Bike Ban policy is activated
+tip2	Turn on solid lines for slope and tunnel modes only when Bike Ban policy is activated
