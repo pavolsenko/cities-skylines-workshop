@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PloppableRICODefinition>
+  <Buildings>
+    <Building name="Generic office #3" service="office" sub-service="none" level="3" workplaces="45" homes="0" construction-cost="75000" ui-category="office"></Building>
+  </Buildings>
+</PloppableRICODefinition>

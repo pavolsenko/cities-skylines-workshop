@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PloppableRICODefinition>
+  <Buildings>
+    <Building name="Barn 05 - RICO" service="industrial" sub-service="farming" level="1" workplaces="2" homes="0" construction-cost="200" ui-category="farming"></Building>
+  </Buildings>
+</PloppableRICODefinition>

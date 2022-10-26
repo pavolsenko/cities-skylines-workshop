@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SubBuildingsDefinition>
+  <Buildings>
+    <Building name="903812356.R69 Doel Nuclear">
+      <SubBuildings>
+      	
+        <SubBuilding name="R69 Doel Nuclear Big" pos-x="0" pos-y="0" pos-z="0" angle="0" fixed-height="true"/>
+        <SubBuilding name="R69 Doel Nuclear Garage" pos-x="-80" pos-y="0" pos-z="4" angle="0" fixed-height="true"/>
+        <SubBuilding name="R69 Doel Nuclear Middle" pos-x="0" pos-y="0" pos-z="-80" angle="0" fixed-height="true"/>
+
+        <SubBuilding name="R69 Doel Nuclear Reactor A" pos-x="-40" pos-y="0" pos-z="-72" angle="0" fixed-height="true"/>
+        <SubBuilding name="R69 Doel Nuclear Reactor B" pos-x="40" pos-y="0" pos-z="-72" angle="0" fixed-height="true"/>
+
+        <SubBuilding name="R69 Doel Nuclear Pipes A" pos-x="-32" pos-y="0" pos-z="40" angle="0" fixed-height="true"/>
+        <SubBuilding name="R69 Doel Nuclear Pipes B" pos-x="32" pos-y="0" pos-z="40" angle="0" fixed-height="true"/>
+
+		<SubBuilding name="R69 Doel Nuclear Sub Pipes A" pos-x="-52" pos-y="0" pos-z="-40" angle="0" fixed-height="true"/>
+		<SubBuilding name="R69 Doel Nuclear Sub Pipes B" pos-x="52" pos-y="0" pos-z="-40" angle="0" fixed-height="true"/>
+
+		<SubBuilding name="R69 Doel Nuclear Fan" pos-x="-84" pos-y="0" pos-z="-68" angle="0" fixed-height="true"/>
+
+      </SubBuildings>
+    </Building>
+  </Buildings>
+</SubBuildingsDefinition>

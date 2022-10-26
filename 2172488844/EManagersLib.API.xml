@@ -1,0 +1,1410 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EManagersLib.API</name>
+    </assembly>
+    <members>
+        <member name="T:EManagersLib.EMath">
+            <summary>
+            UnityEngine.Mathf is extraordinarily slow compared to System.Math
+            and these are common Mathf methods that are optimized. I hate re-inventing
+            the wheel, but these speed ups are drastic enough to do them
+            </summary>
+        </member>
+        <member name="F:EManagersLib.EMath.matrix4Identity">
+            <summary>
+            Get Matrix.identity using this static variable. It's about ~5x faster
+            </summary>
+        </member>
+        <member name="M:EManagersLib.EMath.Approximately(System.Single,System.Single)">
+            <summary>
+            Functions exactly the same as Mathf.Approximately but 52x faster
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Abs(System.Int32)">
+            <summary>
+            Functions exactly the same as Mathf.Abs but ~4x faster
+            </summary>
+            <param name="val"></param>
+            <returns>Returns absolute number</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Abs(System.Single)">
+            <summary>
+            Functions exactly the same as Mathf.Abs but ~4x faster
+            </summary>
+            <param name="val"></param>
+            <returns>Returns absolute number</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.RoundToInt(System.Single)">
+            <summary>
+            Functions exactly the same as Mathf.RoundToInt but ~77x faster
+            </summary>
+            <param name="f">The value that will be rounded</param>
+            <returns>The rounded result</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Clamp(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Functions exactly the same as Mathf.Clamp but ~28x faster
+            </summary>
+            <param name="val">The value needing bounds check</param>
+            <param name="min">The minimum limit</param>
+            <param name="max">The maximum limit</param>
+            <returns>Returns the clamped result</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Clamp(System.Single,System.Single,System.Single)">
+            <summary>
+            Functions exactly the same as Mathf.Clamp but ~28x faster
+            </summary>
+            <param name="val">The value needing bounds check</param>
+            <param name="min">The minimum limit</param>
+            <param name="max">The maximum limit</param>
+            <returns>Returns the clamped result</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Clamp01(System.Single)">
+            <summary>
+            Same as Mathf.Clamp01, clamps between 0 and 1
+            </summary>
+            <param name="val"></param>
+            <returns>Returns value between 0 and 1</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Clamp01(System.Int32)">
+            <summary>
+            Same as Mathf.Clamp01, clamps between 0 and 1
+            </summary>
+            <param name="val"></param>
+            <returns>Returns value between 0 and 1</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Floor(System.Single)">
+            <summary>
+            Same as Mathf.Floor except ~56x faster
+            </summary>
+            <param name="val">float</param>
+            <returns>Returns the rounded value</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Lerp(System.Single,System.Single,System.Single)">
+            <summary>
+            Same as Mathf.Lerp, this version is about ~1.5x faster
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Lerp(UnityEngine.Vector3,UnityEngine.Vector3,System.Single)">
+            <summary>
+            Same as Vector3.Lerp, just slightly faster
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="t"></param>
+            <returns>Returns Vector3</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Max(System.Int32,System.Int32)">
+            <summary>
+            I don't know why Mathf.Max and Math.Max is so slow, but this method will work ~27x faster
+            </summary>
+            <param name="a">First value to compare</param>
+            <param name="b">Second value to compare</param>
+            <returns>Returns the maximum value</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Min(System.Int32,System.Int32)">
+            <summary>
+            I don't know why Mathf.Min and Math.Min is so slow, but this method will work ~27x faster
+            </summary>
+            <param name="a">First value to compare</param>
+            <param name="b">Second value to compare</param>
+            <returns>Returns the minimum value</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Max(System.Single,System.Single)">
+            <summary>
+            I don't know why Mathf.Max and Math.Max is so slow, but this method will work ~27x faster
+            </summary>
+            <param name="a">First value to compare</param>
+            <param name="b">Second value to compare</param>
+            <returns>Returns the maximum value</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Min(System.Single,System.Single)">
+            <summary>
+            I don't know why Mathf.Min and Math.Min is so slow, but this method will work ~27x faster
+            </summary>
+            <param name="a">First value to compare</param>
+            <param name="b">Second value to compare</param>
+            <returns>Returns the minimum value</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Max(UnityEngine.Vector3,UnityEngine.Vector3)">
+            <summary>
+            Compares Vector3 and returns the max, this method is about ~2x faster than Vector3.Max
+            </summary>
+            <param name="lhs">Vector3</param>
+            <param name="rhs">Vector3</param>
+            <returns>Returns the max vector3</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Min(UnityEngine.Vector3,UnityEngine.Vector3)">
+            <summary>
+            Compares Vector3 and returns the min, this method is about ~2x faster than Vector3.Min
+            </summary>
+            <param name="lhs">Vector3</param>
+            <param name="rhs">Vector3</param>
+            <returns>Returns the min vector3</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Sin(System.Single)">
+            <summary>
+            This sine function is an approximation accurate to about ~0.001f, the speed up is about ~20x faster
+            </summary>
+            <param name="x"></param>
+            <returns>Returns the sine result in float</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Cos(System.Single)">
+            <summary>
+            This cosine function is an approximation accurate to about ~0.001f, the speed up is about ~20x faster
+            </summary>
+            <param name="x"></param>
+            <returns>Returns the cosine result in float</returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Acos(System.Single)">
+            <summary>
+            Functions just like Mathf::ACos
+            </summary>
+            <param name="f"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Asin(System.Single)">
+            <summary>
+            Functions just like Mathf::Asin
+            </summary>
+            <param name="f"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Atan2(System.Single,System.Single)">
+            <summary>
+            Functions just like Mathf::Atan2
+            </summary>
+            <param name="y"></param>
+            <param name="x"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Atan(System.Single)">
+            <summary>
+            Functions just like Mathf::Atan
+            </summary>
+            <param name="f"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Repeat(System.Single,System.Single)">
+            <summary>
+            Functions exactly the same as Mathf.Repeat, just faster
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.EMath.SqrtFast(System.Single)">
+            <summary>
+            This Sqrt function is accurate to only 0.01f, the speed is about ~3x faster
+            </summary>
+            <param name="x"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Sign(System.Single)">
+            <summary>
+            Functions Exactly the same as Mathf.Sign
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.EMath.Sign(System.Int32)">
+            <summary>
+            Functions Exactly the same as Mathf.Sign
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.EMath.FloorToInt(System.Single)">
+            <summary>
+            Functions Exactly like Mathf.FloorToInt, just ~8x faster
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.EMath.CeilToInt(System.Single)">
+            <summary>
+            Functions like Mathf.CeilToInt, just ~3x faster
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.EMath.SmoothStep(System.Single,System.Single,System.Single)">
+            <summary>
+            Functions exactly like MathUtils.SmoothStep. This one is only 1.2x faster
+            </summary>
+            <param name="edge0"></param>
+            <param name="edge1"></param>
+            <param name="x"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.EMath.ECheckRenderDistance(RenderManager.CameraInfo,UnityEngine.Vector3,System.Single)">
+            <summary>
+            Functions exactly the same as RenderManager.CameraInfo.CheckRenderDistance, but ~15x faster
+            </summary>
+            <param name="cameraInfo"></param>
+            <param name="point"></param>
+            <param name="maxDistance"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EManagersLib.API.PropWrapper">
+            <summary>
+            Abstract definition for PropWrapper
+            </summary>
+        </member>
+        <member name="F:EManagersLib.API.PropWrapper.pmInstance">
+            <summary>
+            Cached instance of PropManager
+            </summary>
+        </member>
+        <member name="P:EManagersLib.API.PropWrapper.IsAnarchyEnabled">
+            <summary>
+            Check if Prop Anarchy is enabled or disabled
+            </summary>
+        </member>
+        <member name="P:EManagersLib.API.PropWrapper.IsSnappingEnabled">
+            <summary>
+            Check if Prop Snapping is enabled or disabled
+            </summary>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.IsValid(System.UInt32)">
+            <summary>
+            Check whether prop is valid
+            </summary>
+            <param name="id">Prop ID</param>
+            <returns>Returns true if prop is valid, otherwise false</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.IsValid(InstanceID)">
+            <summary>
+            Check whether prop is valid
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns true if prop is valid, otherwise false</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetInfo(System.UInt32)">
+            <summary>
+            Get PropInfo from buffer
+            </summary>
+            <param name="id">id index in prop buffer</param>
+            <returns>Returns PropInfo</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetInfo(InstanceID)">
+            <summary>
+            Get PropInfo from buffer
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns PropInfo</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetPosition(System.UInt32)">
+            <summary>
+            Get Prop Position
+            </summary>
+            <param name="id">id of prop</param>
+            <returns>Returns Vector3 of Prop position</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetPosition(InstanceID)">
+            <summary>
+            Get Prop Position
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns Vector3 of Prop position</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.SetPosition(System.UInt32,UnityEngine.Vector3)">
+            <summary>
+            Set Prop Position
+            </summary>
+            <param name="id">id of prop</param>
+            <param name="pos">Vector3 position</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.SetPosition(InstanceID,UnityEngine.Vector3)">
+            <summary>
+            Set Prop Position
+            </summary>
+            <param name="id">id of prop</param>
+            <param name="pos">Vector3 position</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetAngle(System.UInt32)">
+            <summary>
+            Get Prop Angle
+            </summary>
+            <param name="id">prop id</param>
+            <returns>Returns prop angle</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetAngle(InstanceID)">
+            <summary>
+            Get Prop Angle
+            </summary>
+            <param name="id">InstanceID with valid prop</param>
+            <returns>Returns prop angle</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.SetAngle(System.UInt32,System.Single)">
+            <summary>
+            Set Prop Angle
+            </summary>
+            <param name="id">id of prop</param>
+            <param name="angle">New angle</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.SetAngle(InstanceID,System.Single)">
+            <summary>
+            Set Prop Angle
+            </summary>
+            <param name="id">InstanceID</param>
+            <param name="angle">New angle</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetSingle(System.UInt32)">
+            <summary>
+            Get Prop Single property
+            </summary>
+            <param name="id">Prop ID</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetSingle(InstanceID)">
+            <summary>
+            Get Prop Single property
+            </summary>
+            <param name="id">InstanceID</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.SetSingle(System.UInt32,System.Boolean)">
+            <summary>
+            Set Prop Single property
+            </summary>
+            <param name="id">Prop ID</param>
+            <param name="state">True or False</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.SetSingle(InstanceID,System.Boolean)">
+            <summary>
+            Set Prop Single property
+            </summary>
+            <param name="id">InstanceID</param>
+            <param name="state">True or False</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetFixedHeight(System.UInt32)">
+            <summary>
+            Get Prop FixedHeight property
+            </summary>
+            <param name="id">prop ID</param>
+            <returns>Returns boolean state of FixedHeight</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetFixedHeight(InstanceID)">
+            <summary>
+            Get Prop FixedHeight property
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns boolean state of FixedHeight</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.SetFixedHeight(System.UInt32,System.Boolean)">
+            <summary>
+            Set Prop FixedHeight property
+            </summary>
+            <param name="id">prop ID</param>
+            <param name="state">Boolean value</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.SetFixedHeight(InstanceID,System.Boolean)">
+            <summary>
+            Set Prop FixedHeight property
+            </summary>
+            <param name="id">InstanceID</param>
+            <param name="state">Boolean value</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetScale(System.UInt32)">
+            <summary>
+            Get Prop Scale
+            </summary>
+            <param name="id">prop ID</param>
+            <returns>Returns the scale of prop</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetScale(InstanceID)">
+            <summary>
+            Get Prop Scale
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns the scale of prop</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetColor(System.UInt32)">
+            <summary>
+            Get Prop Color
+            </summary>
+            <param name="id">Prop ID</param>
+            <returns>Returns the color of prop</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetColor(InstanceID)">
+            <summary>
+            Get Prop Color
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns the color of prop</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetNextGridProp(System.UInt32)">
+            <summary>
+            Get PropInstance::m_nextGridProp
+            </summary>
+            <param name="id">Prop ID</param>
+            <returns>Returns PropInstance::m_nextGridProp</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetFlags(System.UInt32)">
+            <summary>
+            Get PropInstance::m_flags
+            </summary>
+            <param name="id">Prop ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetFlags(InstanceID)">
+            <summary>
+            Get PropInstance::m_flags
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.SetFlags(System.UInt32,System.UInt16)">
+            <summary>
+            Set PropInstance::m_flags
+            </summary>
+            <param name="id">Prop ID</param>
+            <param name="value">ushort value to set</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.SetFlags(InstanceID,System.UInt16)">
+            <summary>
+            Set PropInstance::m_flags
+            </summary>
+            <param name="id">InstanceID</param>
+            <param name="value">ushort value to set</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetBuffer(System.UInt32)">
+            <summary>
+            Get PropInstance buffer
+            </summary>
+            <param name="id">prop ID</param>
+            <returns>Returns the boxed buffer</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetBuffer(InstanceID)">
+            <summary>
+            Get PropInstance buffer
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns the boxed buffer</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetRawBuffer">
+            <summary>
+            Get the whole buffer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.CreateProp(System.UInt32@,ColossalFramework.Math.Randomizer@,PropInfo,UnityEngine.Vector3,System.Single,System.Boolean)">
+            <summary>
+            Wrapper for PropManager::CreateProp
+            </summary>
+            <param name="prop"></param>
+            <param name="randomizer"></param>
+            <param name="info"></param>
+            <param name="position"></param>
+            <param name="angle"></param>
+            <param name="single"></param>
+            <returns>Returns true if successful, otherwise false</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.CreateProp(System.UInt32@,PropInfo,UnityEngine.Vector3,System.Single,System.Boolean)">
+            <summary>
+            Simplified version of PropManager::CreateProp
+            </summary>
+            <param name="prop"></param>
+            <param name="info"></param>
+            <param name="position"></param>
+            <param name="angle"></param>
+            <param name="single"></param>
+            <returns>Returns true if successful, otherwise false</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.ReleaseProp(System.UInt32)">
+            <summary>
+            Wrapper for PropManager::ReleaseProp
+            </summary>
+            <param name="prop">prop ID</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.ReleaseProp(InstanceID)">
+            <summary>
+            Wrapper for PropManager::ReleaseProp
+            </summary>
+            <param name="id">InstanceID</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.MoveProp(System.UInt32,UnityEngine.Vector3)">
+            <summary>
+            Move Prop
+            </summary>
+            <param name="id">prop ID</param>
+            <param name="position">New position</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.UpdatePropRenderer(System.UInt32,System.Boolean)">
+            <summary>
+            Update prop renderer
+            </summary>
+            <param name="id">Prop ID</param>
+            <param name="updateGroup">update prop group</param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.RenderInstance(RenderManager.CameraInfo,PropInfo,InstanceID,UnityEngine.Vector3,System.Single,System.Single,UnityEngine.Color,UnityEngine.Vector4,System.Boolean)">
+            <summary>
+            Render Prop
+            </summary>
+            <param name="cameraInfo"></param>
+            <param name="info"></param>
+            <param name="id"></param>
+            <param name="position"></param>
+            <param name="scale"></param>
+            <param name="angle"></param>
+            <param name="color"></param>
+            <param name="objectIndex"></param>
+            <param name="active"></param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.RenderInstance(RenderManager.CameraInfo,PropInfo,InstanceID,UnityEngine.Vector3,System.Single,System.Single,UnityEngine.Color,UnityEngine.Vector4,System.Boolean,UnityEngine.Texture,UnityEngine.Vector4,UnityEngine.Vector4)">
+            <summary>
+            Render Prop
+            </summary>
+            <param name="cameraInfo"></param>
+            <param name="info"></param>
+            <param name="id"></param>
+            <param name="position"></param>
+            <param name="scale"></param>
+            <param name="angle"></param>
+            <param name="color"></param>
+            <param name="objectIndex"></param>
+            <param name="active"></param>
+            <param name="heightMap"></param>
+            <param name="heightMapping"></param>
+            <param name="surfaceMapping"></param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.RayCast(System.UInt32,ColossalFramework.Math.Segment3,System.Single@,System.Single@)">
+            <summary>
+            Wrapper for PropInstance::Raycast
+            </summary>
+            <param name="propID"></param>
+            <param name="ray"></param>
+            <param name="t"></param>
+            <param name="targetSqr"></param>
+            <returns>Returns true on a hit</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.UpdateProp(System.UInt32)">
+            <summary>
+            Wrapper for PropManager::UpdateProp
+            </summary>
+            <param name="propID"></param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.UpdateProps(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Wrapper for PropManager::UpdateProps
+            </summary>
+            <param name="minX"></param>
+            <param name="minZ"></param>
+            <param name="maxX"></param>
+            <param name="maxZ"></param>
+        </member>
+        <member name="M:EManagersLib.API.PropWrapper.GetPropGridEnumerable(System.Int32,System.Int32)">
+            <summary>
+            Special IEnumerable to use for iterating through props in grid
+            </summary>
+            <param name="x">x position in grid</param>
+            <param name="y">y position in grid</param>
+            <returns>Returns IEnumerable for use in foreach</returns>
+        </member>
+        <member name="T:EManagersLib.API.DefPropWrapper">
+            <summary>
+            Prop Wrapper for default CO prop framework
+            </summary>
+        </member>
+        <member name="F:EManagersLib.API.DefPropWrapper.m_defBuffer">
+            <summary>
+            This buffer will be set during class initialization
+            </summary>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.#ctor">
+            <summary>
+            Default prop framework wrapper initialization
+            </summary>
+        </member>
+        <member name="P:EManagersLib.API.DefPropWrapper.IsAnarchyEnabled">
+            <summary>
+            Check if Prop Anarchy is enabled or disabled
+            </summary>
+        </member>
+        <member name="P:EManagersLib.API.DefPropWrapper.IsSnappingEnabled">
+            <summary>
+            Check if Prop Anarchy is enabled or disabled
+            </summary>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.IsValid(System.UInt32)">
+            <summary>
+            Check whether prop is valid
+            </summary>
+            <param name="id">Prop ID</param>
+            <returns>Returns true if prop is valid, otherwise false</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.IsValid(InstanceID)">
+            <summary>
+            Check whether prop is valid
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns true if prop is valid, otherwise false</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetAngle(System.UInt32)">
+            <summary>
+            Get prop angle. This method is as performant as getting PropInstance::Angle property
+            </summary>
+            <param name="id">Prop id</param>
+            <returns>Returns prop angle</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetAngle(InstanceID)">
+            <summary>
+            Get prop angle. This method is as performant as getting PropInstance::Angle property
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns prop angle</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.SetAngle(System.UInt32,System.Single)">
+            <summary>
+            Set prop angle. This method is as performant as setting PropInstance::Angle property
+            </summary>
+            <param name="id">prop id</param>
+            <param name="angle">New angle</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.SetAngle(InstanceID,System.Single)">
+            <summary>
+            Set prop angle. This method is as performant as setting PropInstance::Angle property
+            </summary>
+            <param name="id">InstanceID</param>
+            <param name="angle">New angle</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetInfo(System.UInt32)">
+            <summary>
+            Get PropInfo from prop ID
+            </summary>
+            <param name="id">prop ID</param>
+            <returns>Returns PropInfo</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetInfo(InstanceID)">
+            <summary>
+            Get PropInfo from prop ID
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns PropInfo</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetPosition(System.UInt32)">
+            <summary>
+            Get Prop position. This method is actually slightly faster than calling PropInstance::Position property getter
+            </summary>
+            <param name="id">prop id</param>
+            <returns>Returns prop position</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetPosition(InstanceID)">
+            <summary>
+            Get Prop position. This method is actually slightly faster than calling PropInstance::Position property getter
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns prop position</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.SetPosition(System.UInt32,UnityEngine.Vector3)">
+            <summary>
+            Set prop position. This method is actually many times faster than setting PropInstance::Position property setter due to using more efficient math routines
+            </summary>
+            <param name="id">Prop ID</param>
+            <param name="pos">New position</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.SetPosition(InstanceID,UnityEngine.Vector3)">
+            <summary>
+            Set prop position. This method is actually many times faster than setting PropInstance::Position property setter due to using more efficient math routines
+            </summary>
+            <param name="id">InstanceID</param>
+            <param name="pos">New position</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetSingle(System.UInt32)">
+            <summary>
+            Get prop Single property
+            </summary>
+            <param name="id">prop ID</param>
+            <returns>Returns boolean state of Single</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetSingle(InstanceID)">
+            <summary>
+            Get prop Single property
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns boolean state of Single</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.SetSingle(System.UInt32,System.Boolean)">
+            <summary>
+            Set prop Single property
+            </summary>
+            <param name="id">prop ID</param>
+            <param name="state">True or False</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.SetSingle(InstanceID,System.Boolean)">
+            <summary>
+            Set prop Single property
+            </summary>
+            <param name="id">InstanceID</param>
+            <param name="state">True or False</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetFixedHeight(System.UInt32)">
+            <summary>
+            Get prop FixedHeight property
+            </summary>
+            <param name="id">prop ID</param>
+            <returns>Returns FixedHeight boolean state</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetFixedHeight(InstanceID)">
+            <summary>
+            Get prop FixedHeight property
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns FixedHeight boolean state</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.SetFixedHeight(System.UInt32,System.Boolean)">
+            <summary>
+            Set prop FixedHeight property
+            </summary>
+            <param name="id">prop ID</param>
+            <param name="state">Boolean state to set to</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.SetFixedHeight(InstanceID,System.Boolean)">
+            <summary>
+            Set prop FixedHeight property
+            </summary>
+            <param name="id">Instance</param>
+            <param name="state">Boolean state to set to</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetScale(System.UInt32)">
+            <summary>
+            Get prop scale
+            </summary>
+            <param name="id">prop ID</param>
+            <returns>Returns the prop scale</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetScale(InstanceID)">
+            <summary>
+            Get prop scale
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns the prop scale</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetColor(System.UInt32)">
+            <summary>
+            Get Prop Color
+            </summary>
+            <param name="id">Prop ID</param>
+            <returns>Returns prop scale</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetColor(InstanceID)">
+            <summary>
+            Get Prop Color
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns prop scale</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetNextGridProp(System.UInt32)">
+            <summary>
+            Get PropInstance::m_nextGridProp
+            </summary>
+            <param name="id"></param>
+            <returns>Returns the ushort value of PropInstance::m_nextGridProp casted to uint</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetFlags(System.UInt32)">
+            <summary>
+            Get PropInstance::m_flags
+            </summary>
+            <param name="id">PropID</param>
+            <returns>Returns ushort m_flags</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetFlags(InstanceID)">
+            <summary>
+            Get PropInstance::m_flags
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns ushort m_flags</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.SetFlags(System.UInt32,System.UInt16)">
+            <summary>
+            Set PropInstance::m_flags
+            </summary>
+            <param name="id">Prop ID</param>
+            <param name="value">Set m_flags to value</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.SetFlags(InstanceID,System.UInt16)">
+            <summary>
+            Set PropInstance::m_flags
+            </summary>
+            <param name="id">Prop ID</param>
+            <param name="value">Set m_flags to value</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetBuffer(System.UInt32)">
+            <summary>
+            Get PropInstance buffer
+            </summary>
+            <param name="id">prop ID</param>
+            <returns>Returns the boxed PropInstance buffer</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetBuffer(InstanceID)">
+            <summary>
+            Get PropInstance buffer
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns the boxed PropInstance buffer</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetRawBuffer">
+            <summary>
+            Get the entire PropInstance buffer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.CreateProp(System.UInt32@,ColossalFramework.Math.Randomizer@,PropInfo,UnityEngine.Vector3,System.Single,System.Boolean)">
+            <summary>
+            Wrapper for PropManager::CreateProp
+            </summary>
+            <param name="prop">Prop ID</param>
+            <param name="randomizer">Randomizer</param>
+            <param name="info">Prefab Info</param>
+            <param name="position">Position</param>
+            <param name="angle">Angle</param>
+            <param name="single">Single</param>
+            <returns>Returns true if successful otherwise false</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.CreateProp(System.UInt32@,PropInfo,UnityEngine.Vector3,System.Single,System.Boolean)">
+            <summary>
+            Simplified version of PropManager::CreateProp
+            </summary>
+            <param name="prop">Prop ID</param>
+            <param name="info">Prefab Info</param>
+            <param name="position">Position</param>
+            <param name="angle">Angle</param>
+            <param name="single">Single</param>
+            <returns>Returns true if successful otherwise false</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.ReleaseProp(System.UInt32)">
+            <summary>
+            Wrapper for PropManager::ReleaseProp
+            </summary>
+            <param name="prop">Prop ID</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.ReleaseProp(InstanceID)">
+            <summary>
+            Wrapper for PropManager::ReleaseProp
+            </summary>
+            <param name="id">InstanceID</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.MoveProp(System.UInt32,UnityEngine.Vector3)">
+            <summary>
+            Move Prop
+            </summary>
+            <param name="id">Prop ID</param>
+            <param name="position">New position</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.UpdatePropRenderer(System.UInt32,System.Boolean)">
+            <summary>
+            Update prop renderer
+            </summary>
+            <param name="id">Prop ID</param>
+            <param name="updateGroup">Update Group</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.RenderInstance(RenderManager.CameraInfo,PropInfo,InstanceID,UnityEngine.Vector3,System.Single,System.Single,UnityEngine.Color,UnityEngine.Vector4,System.Boolean)">
+            <summary>
+            Render prop
+            </summary>
+            <param name="cameraInfo"></param>
+            <param name="info"></param>
+            <param name="id"></param>
+            <param name="position"></param>
+            <param name="scale"></param>
+            <param name="angle"></param>
+            <param name="color"></param>
+            <param name="objectIndex"></param>
+            <param name="active"></param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.RenderInstance(RenderManager.CameraInfo,PropInfo,InstanceID,UnityEngine.Vector3,System.Single,System.Single,UnityEngine.Color,UnityEngine.Vector4,System.Boolean,UnityEngine.Texture,UnityEngine.Vector4,UnityEngine.Vector4)">
+            <summary>
+            Render prop
+            </summary>
+            <param name="cameraInfo"></param>
+            <param name="info"></param>
+            <param name="id"></param>
+            <param name="position"></param>
+            <param name="scale"></param>
+            <param name="angle"></param>
+            <param name="color"></param>
+            <param name="objectIndex"></param>
+            <param name="active"></param>
+            <param name="heightMap"></param>
+            <param name="heightMapping"></param>
+            <param name="surfaceMapping"></param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.RayCast(System.UInt32,ColossalFramework.Math.Segment3,System.Single@,System.Single@)">
+            <summary>
+            Wrapper for PropInstance::RayCast()
+            </summary>
+            <param name="propID"></param>
+            <param name="ray"></param>
+            <param name="t"></param>
+            <param name="targetSqr"></param>
+            <returns>Returns true on hit, else false</returns>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.UpdateProp(System.UInt32)">
+            <summary>
+            Wrapper for PropManager::UpdateProp
+            </summary>
+            <param name="propID">Prop ID</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.UpdateProps(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Wrapper for PropManager::UpdateProps()
+            </summary>
+            <param name="minX">float</param>
+            <param name="minZ">float</param>
+            <param name="maxX">float</param>
+            <param name="maxZ">float</param>
+        </member>
+        <member name="M:EManagersLib.API.DefPropWrapper.GetPropGridEnumerable(System.Int32,System.Int32)">
+            <summary>
+            Special IEnumerable to use for iterating through props in grid
+            </summary>
+            <param name="x">x position in grid</param>
+            <param name="y">y position in grid</param>
+            <returns>Returns IEnumerable for use in foreach</returns>
+        </member>
+        <member name="T:EManagersLib.API.EMLPropWrapper">
+            <summary>
+            Prop Wrapper for EML prop framework
+            </summary>
+        </member>
+        <member name="F:EManagersLib.API.EMLPropWrapper.m_defBuffer">
+            <summary>
+            This buffer will be set during class initialization
+            </summary>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.#ctor">
+            <summary>
+            Default prop framework wrapper initialization
+            </summary>
+        </member>
+        <member name="P:EManagersLib.API.EMLPropWrapper.IsAnarchyEnabled">
+            <summary>
+            Check if Prop Anarchy is enabled or disabled
+            </summary>
+        </member>
+        <member name="P:EManagersLib.API.EMLPropWrapper.IsSnappingEnabled">
+            <summary>
+            Check if Prop Anarchy is enabled or disabled
+            </summary>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.IsValid(System.UInt32)">
+            <summary>
+            Check whether prop is valid
+            </summary>
+            <param name="id">Prop ID</param>
+            <returns>Returns true if prop is valid, otherwise false</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.IsValid(InstanceID)">
+            <summary>
+            Check whether prop is valid
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns true if prop is valid, otherwise false</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetAngle(System.UInt32)">
+            <summary>
+            Get prop angle. This method is as performant as getting PropInstance::Angle property
+            </summary>
+            <param name="id">Prop id</param>
+            <returns>Returns prop angle</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetAngle(InstanceID)">
+            <summary>
+            Get prop angle. This method is as performant as getting PropInstance::Angle property
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns prop angle</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.SetAngle(System.UInt32,System.Single)">
+            <summary>
+            Set prop angle. This method is as performant as setting PropInstance::Angle property
+            </summary>
+            <param name="id">prop id</param>
+            <param name="angle">New angle</param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.SetAngle(InstanceID,System.Single)">
+            <summary>
+            Set prop angle. This method is as performant as setting PropInstance::Angle property
+            </summary>
+            <param name="id">InstanceID</param>
+            <param name="angle">New angle</param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetInfo(System.UInt32)">
+            <summary>
+            Get PropInfo from prop ID
+            </summary>
+            <param name="id">prop ID</param>
+            <returns>Returns PropInfo</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetInfo(InstanceID)">
+            <summary>
+            Get PropInfo from prop ID
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns PropInfo</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetPosition(System.UInt32)">
+            <summary>
+            Get Prop position. This method is actually slightly faster than calling PropInstance::Position property getter
+            </summary>
+            <param name="id">prop id</param>
+            <returns>Returns prop position</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetPosition(InstanceID)">
+            <summary>
+            Get Prop position. This method is actually slightly faster than calling PropInstance::Position property getter
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns prop position</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.SetPosition(System.UInt32,UnityEngine.Vector3)">
+            <summary>
+            Set prop position. This method is actually many times faster than setting PropInstance::Position property setter due to using more efficient math routines
+            </summary>
+            <param name="id">Prop ID</param>
+            <param name="pos">New position</param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.SetPosition(InstanceID,UnityEngine.Vector3)">
+            <summary>
+            Set prop position. This method is actually many times faster than setting PropInstance::Position property setter due to using more efficient math routines
+            </summary>
+            <param name="id">InstanceID</param>
+            <param name="pos">New position</param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetSingle(System.UInt32)">
+            <summary>
+            Get prop Single property
+            </summary>
+            <param name="id">prop ID</param>
+            <returns>Returns boolean state of Single</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetSingle(InstanceID)">
+            <summary>
+            Get prop Single property
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns boolean state of Single</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.SetSingle(System.UInt32,System.Boolean)">
+            <summary>
+            Set prop Single property
+            </summary>
+            <param name="id">prop ID</param>
+            <param name="state">True or False</param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.SetSingle(InstanceID,System.Boolean)">
+            <summary>
+            Set prop Single property
+            </summary>
+            <param name="id">InstanceID</param>
+            <param name="state">True or False</param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetFixedHeight(System.UInt32)">
+            <summary>
+            Get prop FixedHeight property
+            </summary>
+            <param name="id">prop ID</param>
+            <returns>Returns FixedHeight boolean state</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetFixedHeight(InstanceID)">
+            <summary>
+            Get prop FixedHeight property
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns FixedHeight boolean state</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.SetFixedHeight(System.UInt32,System.Boolean)">
+            <summary>
+            Set prop FixedHeight property
+            </summary>
+            <param name="id">prop ID</param>
+            <param name="state">Boolean state to set to</param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.SetFixedHeight(InstanceID,System.Boolean)">
+            <summary>
+            Set prop FixedHeight property
+            </summary>
+            <param name="id">Instance</param>
+            <param name="state">Boolean state to set to</param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetScale(System.UInt32)">
+            <summary>
+            Get prop scale
+            </summary>
+            <param name="id">prop ID</param>
+            <returns>Returns the prop scale</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetScale(InstanceID)">
+            <summary>
+            Get prop scale
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns the prop scale</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetColor(System.UInt32)">
+            <summary>
+            Get Prop Color
+            </summary>
+            <param name="id">Prop ID</param>
+            <returns>Returns prop scale</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetColor(InstanceID)">
+            <summary>
+            Get Prop Color
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns prop scale</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetNextGridProp(System.UInt32)">
+            <summary>
+            Get EPropInstance::m_nextGridProp
+            </summary>
+            <param name="id">Prop ID</param>
+            <returns>Returns the uint value of PropInstance::m_nextGridProp</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetFlags(System.UInt32)">
+            <summary>
+            Get EPropInstance::m_flags
+            </summary>
+            <param name="id">Prop ID</param>
+            <returns>Returns ushort m_flags</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetFlags(InstanceID)">
+            <summary>
+            Get EPropInstance::m_flags
+            </summary>
+            <param name="id">Prop ID</param>
+            <returns>Returns ushort m_flags</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.SetFlags(System.UInt32,System.UInt16)">
+            <summary>
+            Set EPropInstance::m_flags
+            </summary>
+            <param name="id">Prop ID</param>
+            <param name="value">Set m_flags to value</param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.SetFlags(InstanceID,System.UInt16)">
+            <summary>
+            Set EPropInstance::m_flags
+            </summary>
+            <param name="id">Prop ID</param>
+            <param name="value">Set m_flags to value</param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetBuffer(System.UInt32)">
+            <summary>
+            Get EPropInstance buffer
+            </summary>
+            <param name="id">Prop ID</param>
+            <returns>Returns the boxed EPropInstance buffer</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetBuffer(InstanceID)">
+            <summary>
+            Get EPropInstance buffer
+            </summary>
+            <param name="id">InstanceID</param>
+            <returns>Returns the boxed EPropInstance buffer</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetRawBuffer">
+            <summary>
+            Get entire EPropInstance buffer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.CreateProp(System.UInt32@,ColossalFramework.Math.Randomizer@,PropInfo,UnityEngine.Vector3,System.Single,System.Boolean)">
+            <summary>
+            Wrapper for EPropManager::CreateProp
+            </summary>
+            <param name="prop">Prop ID</param>
+            <param name="randomizer">Randomizer</param>
+            <param name="info">Prefab Info</param>
+            <param name="position">Position</param>
+            <param name="angle">Angle</param>
+            <param name="single">Single</param>
+            <returns>Returns true if successful otherwise false</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.CreateProp(System.UInt32@,PropInfo,UnityEngine.Vector3,System.Single,System.Boolean)">
+            <summary>
+            Simplified version of EPropManager::CreateProp
+            </summary>
+            <param name="prop">Prop ID</param>
+            <param name="info">Prefab Info</param>
+            <param name="position">Position</param>
+            <param name="angle">Angle</param>
+            <param name="single">Single</param>
+            <returns>Returns true if successful otherwise false</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.ReleaseProp(System.UInt32)">
+            <summary>
+            Wrapper for PropManager::ReleaseProp
+            </summary>
+            <param name="prop">Prop ID</param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.ReleaseProp(InstanceID)">
+            <summary>
+            Wrapper for PropManager::ReleaseProp
+            </summary>
+            <param name="id">InstanceID</param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.MoveProp(System.UInt32,UnityEngine.Vector3)">
+            <summary>
+            Move Prop
+            </summary>
+            <param name="id">Prop ID</param>
+            <param name="position">New position</param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.UpdatePropRenderer(System.UInt32,System.Boolean)">
+            <summary>
+            Update prop renderer
+            </summary>
+            <param name="id">Prop ID</param>
+            <param name="updateGroup">Update Group</param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.RenderInstance(RenderManager.CameraInfo,PropInfo,InstanceID,UnityEngine.Vector3,System.Single,System.Single,UnityEngine.Color,UnityEngine.Vector4,System.Boolean)">
+            <summary>
+            Render prop
+            </summary>
+            <param name="cameraInfo"></param>
+            <param name="info"></param>
+            <param name="id"></param>
+            <param name="position"></param>
+            <param name="scale"></param>
+            <param name="angle"></param>
+            <param name="color"></param>
+            <param name="objectIndex"></param>
+            <param name="active"></param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.RenderInstance(RenderManager.CameraInfo,PropInfo,InstanceID,UnityEngine.Vector3,System.Single,System.Single,UnityEngine.Color,UnityEngine.Vector4,System.Boolean,UnityEngine.Texture,UnityEngine.Vector4,UnityEngine.Vector4)">
+            <summary>
+            Render prop
+            </summary>
+            <param name="cameraInfo"></param>
+            <param name="info"></param>
+            <param name="id"></param>
+            <param name="position"></param>
+            <param name="scale"></param>
+            <param name="angle"></param>
+            <param name="color"></param>
+            <param name="objectIndex"></param>
+            <param name="active"></param>
+            <param name="heightMap"></param>
+            <param name="heightMapping"></param>
+            <param name="surfaceMapping"></param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.RayCast(System.UInt32,ColossalFramework.Math.Segment3,System.Single@,System.Single@)">
+            <summary>
+            Wrapper for PropInstance::RayCast()
+            </summary>
+            <param name="propID"></param>
+            <param name="ray"></param>
+            <param name="t"></param>
+            <param name="targetSqr"></param>
+            <returns>Returns true on hit, else false</returns>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.UpdateProp(System.UInt32)">
+            <summary>
+            Wrapper for PropManager::UpdateProp
+            </summary>
+            <param name="propID">Prop ID</param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.UpdateProps(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Wrapper for PropManager::UpdateProps
+            </summary>
+            <param name="minX"></param>
+            <param name="minZ"></param>
+            <param name="maxX"></param>
+            <param name="maxZ"></param>
+        </member>
+        <member name="M:EManagersLib.API.EMLPropWrapper.GetPropGridEnumerable(System.Int32,System.Int32)">
+            <summary>
+            Special IEnumerable to use for iterating through props in grid
+            </summary>
+            <param name="x">x position in grid</param>
+            <param name="y">y position in grid</param>
+            <returns>Returns IEnumerable for use in foreach</returns>
+        </member>
+        <member name="T:EManagersLib.API.PropAPI">
+            <summary>
+            Standardized Prop API for use with or without EML. All methods in this API are optimized and should be as performant or faster than original CO framework
+            </summary>
+        </member>
+        <member name="M:EManagersLib.API.PropAPI.CreateGetter``2(System.Reflection.FieldInfo)">
+            <summary>
+            Helper API to create delegates to get private or protected field members that would usually be accessed
+            using slow reflection codes
+            </summary>
+            <typeparam name="S">Type of class where the field resides</typeparam>
+            <typeparam name="T">Name of the private or protected field</typeparam>
+            <param name="field"></param>
+            <returns>Returns the delegate for fast getter to private or protected fields</returns>
+        </member>
+        <member name="M:EManagersLib.API.PropAPI.CreateSetter``2(System.Reflection.FieldInfo)">
+            <summary>
+            Helper API to create delegates to set private or protected field members that would usually be accessed
+            using slow reflection codes
+            </summary>
+            <typeparam name="S"></typeparam>
+            <typeparam name="T"></typeparam>
+            <param name="field"></param>
+            <returns>Returns the delegate for fast setter of private or protected fields</returns>
+        </member>
+        <member name="T:EManagersLib.API.PropAPI.RAYCASTAPI">
+            <summary>
+            This is the delegated version of custom ToolBase::RayCast.
+            This delegate will be assigned in Initialize() to the appropriate EML version of EToolBase::RayCast or
+            original default CO ToolBase::RayCast.
+            </summary>
+            <param name="input">RaycastInput parameter</param>
+            <param name="output">EToolBase.RaycastOutput parameter</param>
+        </member>
+        <member name="T:EManagersLib.API.PropAPI.INSTANCEPROPIDAPI">
+            <summary>
+            This is the delegated version of InstanceID.Prop or InstanceID.GetProp32() when EML is installed.
+            This delegate will be assigned in Initialize() to the appropriate EML version of InstanceID.Prop or InstanceID.GetProp32()
+            </summary>
+            <param name="id">InstanceID parameter</param>
+        </member>
+        <member name="F:EManagersLib.API.PropAPI.m_isEMLInstalled">
+            <summary>
+            Public boolean to check if EML is installed or not
+            </summary>
+        </member>
+        <member name="P:EManagersLib.API.PropAPI.PropBufferLen">
+            <summary>
+            Public int to get current buffer length
+            </summary>
+        </member>
+        <member name="P:EManagersLib.API.PropAPI.Wrapper">
+            <summary>
+            Wrapper that is set during Initialize. Auto property is just as performant if not better than a regular field
+            </summary>
+        </member>
+        <member name="F:EManagersLib.API.PropAPI.RayCast">
+            <summary>
+            This is the delegated version of custom ToolBase::RayCast.
+            This delegate will be assigned in Initialize() to the appropriate EML version of EToolBase::RayCast or
+            original default CO ToolBase::RayCast.
+            </summary>
+        </member>
+        <member name="F:EManagersLib.API.PropAPI.GetPropID">
+            <summary>
+            This is the delegated version of InstanceID.Prop or InstanceID.GetProp32() when EML is installed.
+            This delegate will be assigned in Initialize() to the appropriate EML version of InstanceID.Prop or InstanceID.GetProp32()
+            </summary>
+        </member>
+        <member name="M:EManagersLib.API.PropAPI.Initialize">
+            <summary>
+            This function initializes the API to support runtime detection of the existence of Extended Managers Library
+            Make sure to call this function in ILoadingExtension::OnCreated or ILoadingExtension::OnLevelLoaded, but not
+            before these callbacks.
+            </summary>
+        </member>
+    </members>
+</doc>

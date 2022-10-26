@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PloppableRICODefinition>
+  <Buildings>
+    <Building name="The Lofts at Market Square" service="residential" sub-service="low" level="3" workplaces="0" homes="3" construction-cost="20000" ui-category="reslow"></Building>
+  </Buildings>
+</PloppableRICODefinition>

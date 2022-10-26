@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PloppableRICODefinition>
+  <Buildings>
+    <Building name="Mixed Use Commercial 7x3" service="commercial" sub-service="high" level="1" workplaces="66" homes="0" construction-cost="1000" ui-category="comhigh"></Building>
+    <Building name="Mixed Use Residential 7x3" service="residential" sub-service="high" level="2" workplaces="0" homes="60" construction-cost="1000" ui-category="comhigh"></Building>
+    <Building name="Mixed Use Commercial 2x3" service="commercial" sub-service="high" level="1" workplaces="15" homes="0" construction-cost="1000" ui-category="comhigh"></Building>
+  </Buildings>
+</PloppableRICODefinition>

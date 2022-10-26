@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PloppableRICODefinition>
+  <Buildings>
+    <Building name="Robal's apartments #2" service="residential" level="3" sub-service="high" workplaces="0" homes="30" construction-cost="100" ui-category="reshigh"></Building>
+    <Building name="Robal's apartments #2 rotated" service="residential" level="3" sub-service="high" workplaces="0" homes="30" construction-cost="100" ui-category="reshigh"></Building>
+  </Buildings>
+</PloppableRICODefinition>

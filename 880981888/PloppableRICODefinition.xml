@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PloppableRICODefinition>
+  <Buildings>
+    <Building name="Hotel Mercure" service="commercial" sub-service="tourist" level="2" workplaces="140" homes="0" construction-cost="85000" ui-category="tourist"></Building>
+  </Buildings>
+</PloppableRICODefinition>

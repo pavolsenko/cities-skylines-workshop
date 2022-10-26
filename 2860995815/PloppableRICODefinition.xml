@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PloppableRICODefinition>
+  <Buildings>
+    <Building name="YDFpharma Facilities B2" service="industrial" sub-service="generic" level="3" workplaces="40" homes="0" construction-cost="85000" ui-category="industrial"></Building>
+  </Buildings>
+</PloppableRICODefinition>

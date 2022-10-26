@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PloppableRICODefinition>
+  <Buildings>
+    <Building name="Pashka's warehouse001" service="industrial" sub-service="generic" level="1" workplaces="5" homes="0" construction-cost="1500" ui-category="industrial"></Building>
+  </Buildings>
+</PloppableRICODefinition>

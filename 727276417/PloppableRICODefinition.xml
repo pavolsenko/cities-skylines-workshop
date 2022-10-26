@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PloppableRICODefinition>
+  <Buildings>
+    <Building name="City Commons Condos" service="residential" sub-service="low" level="3" workplaces="0" homes="4" construction-cost="10000" ui-category="reslow"></Building>
+  </Buildings>
+</PloppableRICODefinition>

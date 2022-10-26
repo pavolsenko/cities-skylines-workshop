@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PloppableRICODefinition>
+  <Buildings>
+    <Building name="Warehouse 4" service="industrial" sub-service="generic" level="1" workplaces="40" homes="0" construction-cost="26000" ui-category="industrial" enable-pollution="false" ></Building>
+  </Buildings>
+</PloppableRICODefinition>

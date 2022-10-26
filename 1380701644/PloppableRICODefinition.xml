@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PloppableRICODefinition>
+  <Buildings>
+    <Building name="Fabrik" service="extractor" sub-service="forest" level="1" workplaces="100" homes="0" construction-cost="500" ui-category="industrial"></Building>
+  </Buildings>
+</PloppableRICODefinition>
